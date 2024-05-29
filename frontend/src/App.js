@@ -5,6 +5,8 @@ import PeopleList from "./components/PeopleList";
 import PeopleInfo from "./components/PeopleInfo";
 import StarshipList from "./components/StarshipList";
 import StarshipInfo from "./components/StarshipInfo";
+import Login from "./pages/Login"
+import Register from "./pages/Registration"
 import {Routes, Route, Navigate} from "react-router-dom";
 import {Header} from "./components/Header";
 import SearchResult from "./components/SearchResult";
@@ -21,8 +23,8 @@ function App() {
             <Route path = 'starships' element={<StarshipList/>}/>
             <Route path = 'starships/:name' element={<StarshipInfo/>}/>
             <Route path="/search" element={<SearchResult />} />
-            {/*<Route path = 'login' element={<Login/>}/>*/}
-            {/*<Route path = 'register' element={<Register/>}/>*/}
+            <Route path = 'login' element={<Login/>}/>
+            <Route path = 'register' element={<Register/>}/>
 
             <Route path={''} element={<Navigate to={'planets'}/>}/>
             <Route path={'/'} element={<Navigate to={'planets'}/>}/>

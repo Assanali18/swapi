@@ -25,7 +25,7 @@ const Search = () => {
     };
 
     return (
-        <form className="d-flex" onSubmit={handleSubmit}>
+        <form className="d-flex justify-content-center align-items-center" onSubmit={handleSubmit}>
             <input
                 className="form-control me-2"
                 type="search"
