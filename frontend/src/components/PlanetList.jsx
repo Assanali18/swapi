@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import planetImage from "../images/planet.webp";
 
 const PlanetsList = () => {
     const [planets, setPlanets] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [nextPageUrl, setNextPageUrl] = useState('http://localhost:4444/api/planets/'); // Используйте относительный URL вашего API
-    const navigate = useNavigate();
+    const [nextPageUrl, setNextPageUrl] = useState('http://localhost:4444/api/planets/');
     useEffect(() => {
 
         fetchPlanets(nextPageUrl);
@@ -42,14 +42,28 @@ const PlanetsList = () => {
     if(loading) return <div>Loading...</div>
 
     return (
-        <div>
-            <h1>Planets</h1>
-            <ul>
+        <div className="container">
+            <h1 className="text-md-center pt-3 font-monospace mb-4 ">Planets</h1>
+            <div className="row">
                 {planets.map((planet, index) => (
-                    <li key={index} onClick={() => navigate(`/planets/${encodeURIComponent(planet.name)}`)}>{planet.name}</li>
+                    <div key={index} className="col-md-4 mb-4">
+                        <div className="card w-60">
+                            <img src={planetImage} className="card-img-top" alt={planet.name}/>
+                            <div className="card-body">
+                                <h5 className="card-title">
+                                    <Link to={`/planets/${encodeURIComponent(planet.name)}`}
+                                    >{planet.name}</Link>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
                 ))}
-            </ul>
-            {nextPageUrl && <button onClick={handleLoadMore}>Load More</button>}
+            </div>
+            {nextPageUrl && (
+                <div className="text-center mt-4">
+                    <button className="btn btn-primary" onClick={handleLoadMore}>Load More</button>
+                </div>
+            )}
         </div>
     );
 };

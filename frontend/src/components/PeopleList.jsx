@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
+
+import personImage from "../images/person.jpg"
 
 const PeopleList = () => {
     const [people, setPeople] = useState([]);
     const [loading, setLoading] = useState(true);
     const [nextPageUrl, setNextPageUrl] = useState('http://localhost:4444/api/people/');
-    const navigate = useNavigate();
     useEffect(() => {
 
         fetchPeople(nextPageUrl);
@@ -42,14 +43,28 @@ const PeopleList = () => {
 
 
     return (
-        <div>
-            <h1>People</h1>
-            <ul>
+        <div className="container">
+            <h1 className="text-md-center pt-3 font-monospace mb-4 ">People</h1>
+            <div className="row">
                 {people.map((person, index) => (
-                    <li key={index} onClick={() => navigate(`/people/${encodeURIComponent(person.name)}`) }>{person.name}</li>
+                    <div key={index} className="col-md-4 mb-4">
+                        <div className="card w-60">
+                            <img src={personImage} className="card-img-top" alt={person.name}/>
+                            <div className="card-body">
+                                <h5 className="card-title">
+                                    <Link to={`/people/${encodeURIComponent(person.name)}`}
+                                    >{person.name}</Link>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
                 ))}
-            </ul>
-            {nextPageUrl && <button onClick={handleLoadMore}>Load More</button>}
+            </div>
+            {nextPageUrl && (
+                <div className="text-center mt-4">
+                    <button className="btn btn-primary" onClick={handleLoadMore}>Load More</button>
+                </div>
+            )}
         </div>
     );
 };

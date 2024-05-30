@@ -41,25 +41,31 @@ const PeopleInfo = () => {
 
 
     return (
-        <div>
-            <h1>{people.name}</h1>
-            <p>Gender: {people.gender}</p>
-            <p>Hair color: {people.hair_color}</p>
-            <p>Height: {people.height}</p>
-            <p>Homeworld: {homeworld ?
-                <Link to={`/planets/${encodeURIComponent(homeworld.name)}`}>{homeworld.name}</Link> : 'Unknown'}</p>
-            <p>Birth_year: {people.birth_year}</p>
-            <p>Starships:</p>
-            {starships.length > 0 ? (
-                <ul>
-                    {starships.map((starship, index) => (
-                        <li key={index}>
-                            <Link to={`/starships/${encodeURIComponent(starship.name)}`}>{starship.name}</Link>
-                        </li>
-                    ))}
-                </ul>
-            ) : <p>No starships.</p>}
-
+        <div className="d-flex justify-content-center align-items-center" style={{minHeight: "100vh"}}>
+            <div className="card font-monospace" style={{width: "50%"}}>
+                <div className="card-header bg-success text-white">
+                    <h1>{people.name}</h1>
+                </div>
+                <div className="card-body bg-light">
+                    <p className="text-secondary"><strong>Gender:</strong> {people.gender}</p>
+                    <p className="text-secondary"><strong>Hair color:</strong> {people.hair_color}</p>
+                    <p className="text-secondary"><strong>Height:</strong> {people.height}</p>
+                    <p className="text-secondary"><strong>Homeworld:</strong> {homeworld ?
+                        <Link to={`/planets/${encodeURIComponent(homeworld.name)}`}>{homeworld.name}</Link> : 'Unknown'}
+                    </p>
+                    <p className="text-secondary"><strong>Birth year:</strong> {people.birth_year}</p>
+                    <p className="text-secondary"><strong>Starships:</strong></p>
+                    {starships.length > 0 ? (
+                        <ul>
+                            {starships.map((starship, index) => (
+                                <li key={index}>
+                                    <Link to={`/starships/${encodeURIComponent(starship.name)}`}>{starship.name}</Link>
+                                </li>
+                            ))}
+                        </ul>
+                    ) : <p>No starships.</p>}
+                </div>
+            </div>
         </div>
     );
 };

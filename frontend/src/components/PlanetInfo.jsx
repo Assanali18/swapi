@@ -35,20 +35,26 @@ const PlanetInfo = () => {
     if (!planet) return <div>Planet not found.</div>;
 
     return (
-        <div>
-            <h1>{planet.name}</h1>
-            <p>Diameter: {planet.diameter} km</p>
-            <p>Population: {planet.population}</p>
-            <p>Climate: {planet.climate}</p>
-            <p>Terrain: {planet.terrain}</p>
-            <p>Residents:</p>
-            <ul>
-                {residents.map((resident, index) => (
-                    <li key={index}>
-                        <Link to={`/people/${encodeURIComponent(resident.name)}`}>{resident.name}</Link>
-                    </li>
-                ))}
-            </ul>
+        <div className="d-flex justify-content-center align-items-center" style={{minHeight: "100vh"}}>
+            <div className="card font-monospace" style={{width: "50%"}}>
+                <div className="card-header text-white" style={{backgroundColor: "red"}}>
+                    <h1>{planet.name}</h1>
+                </div>
+                <div className="card-body bg-light">
+                    <p className="text-secondary"><strong>Diameter:</strong> {planet.diameter} km</p>
+                    <p className="text-secondary"><strong>Population:</strong> {planet.population}</p>
+                    <p className="text-secondary"><strong>Climate:</strong> {planet.climate}</p>
+                    <p className="text-secondary"><strong>Terrain:</strong> {planet.terrain}</p>
+                    <p className="text-secondary"><strong>Residents:</strong></p>
+                    <ul>
+                        {residents.map((resident, index) => (
+                            <li key={index}>
+                                <Link to={`/people/${encodeURIComponent(resident.name)}`}>{resident.name}</Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
         </div>
     );
 };

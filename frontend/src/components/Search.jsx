@@ -3,12 +3,11 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 const Search = () => {
     const [query, setQuery] = useState('');
-    const [category, setCategory] = useState('people'); // Изначально устанавливаем любую категорию по умолчанию
+    const [category, setCategory] = useState('people');
     const location = useLocation();
     const navigate = useNavigate();
 
     useEffect(() => {
-        // Определение категории поиска на основе текущего маршрута
         if (location.pathname.includes("/people")) {
             setCategory("people");
         } else if (location.pathname.includes("/planets")) {
@@ -25,7 +24,7 @@ const Search = () => {
     };
 
     return (
-        <form className="d-flex justify-content-center align-items-center" onSubmit={handleSubmit}>
+        <form className="d-flex justify-content-center align-items-center font-monospace" onSubmit={handleSubmit}>
             <input
                 className="form-control me-2"
                 type="search"
@@ -34,15 +33,17 @@ const Search = () => {
                 value={query}
                 onChange={e => setQuery(e.target.value)}
             />
-            <select
-                value={category}
-                onChange={e => setCategory(e.target.value)}
-                className="me-2"
-            >
-                <option value="people">People</option>
-                <option value="planets">Planets</option>
-                <option value="starships">Starships</option>
-            </select>
+
+                <select
+                    className="form-select me-2"
+                    id="floatingSelect"
+                    aria-label="Floating label select example">
+                    value={category}
+                    onChange={e => setCategory(e.target.value)}
+                    <option value="people">People</option>
+                    <option value="planets">Planets</option>
+                    <option value="starships">Starships</option>
+                </select>
             <button className="btn btn-outline-success" type="submit">Search</button>
         </form>
     );
