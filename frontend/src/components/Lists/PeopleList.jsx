@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 import './List.css'
 
-import personImage from "../images/person.jpg"
+import personImage from "../../images/person.jpg"
 
 const PeopleList = () => {
     const [people, setPeople] = useState([]);

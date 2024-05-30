@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 
-import starshipImage from '../images/starship.webp';
+import starshipImage from '../../images/starship.webp';
 
 const StarshipList = () => {
     const [starships, setStarships] = useState([]);
@@ -40,7 +40,7 @@ const StarshipList = () => {
         }
     };
 
-    if(loading) return <div>Loading...</div>
+    if (loading) return <div>Loading...</div>
 
     return (
         <div className="container">

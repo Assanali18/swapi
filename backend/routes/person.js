@@ -5,7 +5,7 @@ const router = express.Router();
 
 
 router.get('/', async (req, res) => {
-    const page = req.query.page; // Получение номера страницы из запроса
+    const page = req.query.page; 
     const url = `https://swapi.dev/api/people/${page ? '?page=' + page : ''}`;
 
     try {

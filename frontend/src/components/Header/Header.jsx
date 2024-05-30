@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import Search from './Search';
+import Search from '../Search/Search';
 import  './Header.css'
 
 export const Header = () => {

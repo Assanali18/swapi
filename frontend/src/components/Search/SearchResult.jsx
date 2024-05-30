@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import {Link, useLocation} from 'react-router-dom';
 
-import starshipImage from '../images/starship.webp';
-import planetImage from "../images/planet.webp";
-import personImage from "../images/person.jpg"
+import starshipImage from '../../images/starship.webp';
+import planetImage from "../../images/planet.webp";
+import personImage from "../../images/person.jpg"
 
 const SearchResults = () => {
     const [results, setResults] = useState([]);
@@ -44,7 +44,7 @@ const SearchResults = () => {
                     {results.map((item, index) => (
                         <div key={index} className="col-md-4 mb-4">
                             <div className="card">
-                                <img src={getImageUrl(item, category)} className="card-img-top" alt={item.name} />
+                                <img src={getImageUrl(item, category)} className="card-img-top" alt={item.name}/>
                                 <div className="card-body">
                                     <h5 className="card-title">
                                         <Link to={`/${category}/${encodeURIComponent(item.name)}`}>
@@ -57,8 +57,8 @@ const SearchResults = () => {
                     ))}
                 </div>
             ) : (
-                loading? <div>Loading...</div> :
-                <p>No results found.</p>
+                loading ? <div>Loading...</div> :
+                    <p>No results found.</p>
             )}
         </div>
     );

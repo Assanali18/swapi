@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 
 function LoginForm() {
     const [username, setUsername] = useState('');
@@ -17,7 +17,7 @@ function LoginForm() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ username, password }),
+                body: JSON.stringify({username, password}),
             });
 
             const data = await response.json();

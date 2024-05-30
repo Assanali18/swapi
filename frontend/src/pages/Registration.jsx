@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 
 function RegisterForm() {
     const [username, setUsername] = useState('');
@@ -17,7 +17,7 @@ function RegisterForm() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ username, password }),
+                body: JSON.stringify({username, password}),
             });
 
             const data = await response.json();
