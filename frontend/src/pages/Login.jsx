@@ -37,12 +37,21 @@ function LoginForm() {
 
     return (
         <div className="d-flex justify-content-center align-items-center vh-100">
-            <div className="w-50" style={{maxWidth: '400px'}}>
-                <form onSubmit={handleSubmit} className="p-4 shadow-sm rounded bg-white">
+            <div className="w-50" style={{
+                maxWidth: '400px',
+                backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                borderColor: 'yellow',
+                borderStyle: 'solid',
+                borderWidth: '1px',
+                borderRadius: '0.25rem',
+                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+            }}>
+                <form onSubmit={handleSubmit} className="p-4"
+                      style={{color: 'white'}}>
                     <h2 className="mb-3 text-center">Login</h2>
                     {error && <div className="alert alert-danger" role="alert">{error}</div>}
                     <div className="mb-3">
-                        <label htmlFor="usernameInput" className="form-label">Username:</label>
+                        <label htmlFor="usernameInput" className="form-label" style={{color: 'white'}}>Username:</label>
                         <input
                             type="text"
                             className="form-control"
@@ -51,10 +60,11 @@ function LoginForm() {
                             onChange={(e) => setUsername(e.target.value)}
                             required
                             placeholder="Enter your username"
+                            style={{backgroundColor: 'transparent', color: 'white', borderColor: 'yellow'}}
                         />
                     </div>
                     <div className="mb-3">
-                        <label htmlFor="passwordInput" className="form-label">Password:</label>
+                        <label htmlFor="passwordInput" className="form-label" style={{color: 'white'}}>Password:</label>
                         <input
                             type="password"
                             className="form-control"
@@ -63,12 +73,14 @@ function LoginForm() {
                             onChange={(e) => setPassword(e.target.value)}
                             required
                             placeholder="Enter your password"
+                            style={{backgroundColor: 'transparent', color: 'white', borderColor: 'yellow'}}
                         />
                     </div>
-                    <button type="submit" className="btn btn-primary w-100">Login</button>
+                    <button type="submit" className="btn w-100">Login</button>
                 </form>
             </div>
         </div>
+
 
     );
 }

@@ -1,0 +1,25 @@
+.search-input,
+.search-select,
+.search-button {
+    color: white;
+    background-color: transparent;
+    border: 1px solid yellow;
+}
+
+.search-input:focus {
+    background-color: transparent;
+    border-color: yellow;
+    box-shadow: none;
+}
+
+.search-input:focus {
+    color: white;
+}
+
+.search-button {
+    border-color: yellow;
+}
+.search-button:hover{
+    color: black;
+    background-color: yellow ;
+}

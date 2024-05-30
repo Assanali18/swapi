@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';  // Импорт useHistory для навигации
+import { useNavigate } from 'react-router-dom';
 
 function RegisterForm() {
     const [username, setUsername] = useState('');
@@ -37,8 +37,17 @@ function RegisterForm() {
 
     return (
         <div className="d-flex justify-content-center align-items-center vh-100">
-            <div className="w-50" style={{maxWidth: '400px'}}>
-                <form onSubmit={handleSubmit} className="p-4 shadow-sm rounded bg-white">
+            <div className="w-50" style={{
+                maxWidth: '400px',
+                backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                borderColor: 'yellow',
+                borderStyle: 'solid',
+                borderWidth: '1px',
+                borderRadius: '0.25rem',
+                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+            }}>
+                <form onSubmit={handleSubmit} className="p-4"
+                      style={{color: 'white'}}>
                     <h2 className="mb-3 text-center">Register</h2>
                     {error && <div className="alert alert-danger" role="alert">{error}</div>}
                     <div className="mb-3">
@@ -50,7 +59,8 @@ function RegisterForm() {
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                             required
-                            placeholder="Choose a username"
+                            placeholder="Enter your username"
+                            style={{backgroundColor: 'transparent', color: 'white', borderColor: 'yellow'}}
                         />
                     </div>
                     <div className="mb-3">
@@ -62,10 +72,11 @@ function RegisterForm() {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
-                            placeholder="Create a password"
+                            placeholder="Enter your password"
+                            style={{backgroundColor: 'transparent', color: 'white', borderColor: 'yellow'}}
                         />
                     </div>
-                    <button type="submit" className="btn btn-primary w-100">Register</button>
+                    <button type="submit" className="btn w-100">Register</button>
                 </form>
             </div>
         </div>

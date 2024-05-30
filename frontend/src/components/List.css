@@ -1,0 +1,27 @@
+.card-title{
+    text-align: center;
+}
+a{
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: yellow;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background-color: yellow;
+    transition: width 0.4s ease;
+    z-index: 1;
+}
+
+a:hover::after {
+    width: 100%;
+    left: 0;
+    right: auto;
+}

@@ -29,19 +29,25 @@ const StarshipInfo = () => {
 
     return (
         <div className="d-flex justify-content-center align-items-center" style={{minHeight: "100vh"}}>
-            <div className="card font-monospace" style={{width: "50%"}}>
-                <div className="card-header bg-primary text-white">
-                    <h1>{starship.name}</h1>
+            <div className="card font-monospace" style={{
+                width: "50%",
+                backgroundColor: 'transparent',
+                borderColor: 'yellow',
+                borderWidth: '1px',
+                borderStyle: 'solid'
+            }}>
+                <div className="card-header">
+                    <h1 style={{color: "yellow"}}>{starship.name}</h1>
                 </div>
-                <div className="card-body bg-light">
-                    <p className="text-secondary"><strong>Model:</strong> {starship.model}</p>
-                    <p className="text-secondary"><strong>Cargo Capacity:</strong> {starship.cargo_capacity}</p>
-                    <p className="text-secondary"><strong>Cost:</strong> {starship.cost_in_credits}</p>
-                    <p className="text-secondary"><strong>Max Atmosphering
+                <div className="card-body">
+                    <p><strong style={{color: "yellow"}}>Model:</strong> {starship.model}</p>
+                    <p><strong style={{color: "yellow"}}>Cargo Capacity:</strong> {starship.cargo_capacity}</p>
+                    <p><strong style={{color: "yellow"}}>Cost:</strong> {starship.cost_in_credits}</p>
+                    <p><strong style={{color: "yellow"}}>Max Atmosphering
                         Speed:</strong> {starship.max_atmosphering_speed}</p>
-                    <p className="text-secondary"><strong>Length:</strong> {starship.length}</p>
-                    <p className="text-secondary"><strong>Max Passengers:</strong> {starship.passengers}</p>
-                    <p className="text-secondary"><strong>HyperDrive rating:</strong> {starship.hyperdrive_rating}</p>
+                    <p><strong style={{color: "yellow"}}>Length:</strong> {starship.length}</p>
+                    <p><strong style={{color: "yellow"}}>Max Passengers:</strong> {starship.passengers}</p>
+                    <p><strong style={{color: "yellow"}}>HyperDrive rating:</strong> {starship.hyperdrive_rating}</p>
                 </div>
             </div>
         </div>

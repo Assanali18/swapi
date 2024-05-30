@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import {Link, useNavigate} from 'react-router-dom';
+import {Link} from 'react-router-dom';
+
+import './List.css'
 
 import personImage from "../images/person.jpg"
 
@@ -44,7 +46,7 @@ const PeopleList = () => {
 
     return (
         <div className="container">
-            <h1 className="text-md-center pt-3 font-monospace mb-4 ">People</h1>
+            <h1 className="text-md-center pt-3 font-monospace mb-4">People</h1>
             <div className="row">
                 {people.map((person, index) => (
                     <div key={index} className="col-md-4 mb-4">
@@ -52,21 +54,25 @@ const PeopleList = () => {
                             <img src={personImage} className="card-img-top" alt={person.name}/>
                             <div className="card-body">
                                 <h5 className="card-title">
-                                    <Link to={`/people/${encodeURIComponent(person.name)}`}
-                                    >{person.name}</Link>
+                                    <Link  to={`/people/${encodeURIComponent(person.name)}`} className="link-animation">
+                                        {person.name}
+                                    </Link>
                                 </h5>
                             </div>
                         </div>
                     </div>
                 ))}
             </div>
-            {nextPageUrl && (
-                <div className="text-center mt-4">
-                    <button className="btn btn-primary" onClick={handleLoadMore}>Load More</button>
-                </div>
-            )}
-        </div>
-    );
+    {
+        nextPageUrl && (
+            <div className="text-center mt-4">
+                <button className="btn" onClick={handleLoadMore}>Load More</button>
+            </div>
+        )
+    }
+</div>
+)
+    ;
 };
 
 export default PeopleList;
