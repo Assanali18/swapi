@@ -1,14 +1,14 @@
-.card-title{
+.cardTitle{
     text-align: center;
 }
-a{
+.linkToInfo{
     position: relative;
     display: inline-block;
     text-decoration: none;
     color: yellow;
 }
 
-a::after {
+.linkToInfo::after {
     content: '';
     position: absolute;
     bottom: -3px;
@@ -20,8 +20,18 @@ a::after {
     z-index: 1;
 }
 
-a:hover::after {
+.linkToInfo:hover::after {
     width: 100%;
     left: 0;
     right: auto;
 }
+
+.card {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+

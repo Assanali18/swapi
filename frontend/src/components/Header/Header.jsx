@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import {NavLink, useNavigate} from 'react-router-dom';
 import Search from '../Search/Search';
-import  './Header.css'
+import style from './Header.module.css';
 
 export const Header = () => {
     const navigate = useNavigate();
@@ -11,21 +11,24 @@ export const Header = () => {
     const handleLogout = () => {
         localStorage.removeItem('token');
         localStorage.removeItem('username');
-        navigate('/')
+        navigate('/');
     };
 
     return (
-        <nav className="navbar navbar-expand-lg bg-body-tertiary] border-bottom">
-            <div className="container-fluid d-flex justify-content-between m-0 p-0">
+        <nav className={`navbar navbar-expand-lg bg-body-tertiary border-bottom p-0`}>
+            <div className="container-fluid d-flex justify-content-between m-0">
                 <div className="d-flex flex-nowrap">
-                    <div className="navbar-brand font-monospace">Star Wars</div>
+                    <div className={`navbar-brand font-monospace ${style.navbarBrand}`}>Star Wars</div>
                     <div className="collapse navbar-collapse">
-                        <div className="navbar-nav font-monospace">
-                            <NavLink className="nav-link nav-text" activeClassName="custom-active-link"
+                        <div className={`navbar-nav font-monospace`}>
+                            <NavLink className={({isActive}) => isActive ?
+                                `${style.navLink} ${style.navLinkActive}` : style.navLink}
                                      to="/planets">Planets</NavLink>
-                            <NavLink className="nav-link nav-text " activeClassName="custom-active-link"
+                            <NavLink className={({isActive}) => isActive ?
+                                `${style.navLink} ${style.navLinkActive}` : style.navLink}
                                      to="/people">People</NavLink>
-                            <NavLink className="nav-link nav-text" activeClassName="custom-active-link"
+                            <NavLink className={({isActive}) => isActive ?
+                                `${style.navLink} ${style.navLinkActive}` : style.navLink}
                                      to="/starships">Starships</NavLink>
                         </div>
                     </div>
@@ -34,22 +37,29 @@ export const Header = () => {
                 <div>
                     {token ? (
                         <>
-                            <span className="navbar-text mr-3 font-monospace nav-text">Hello, <span>{username}</span></span>
-                            <button type="button" className="btn btn-outline-danger font-monospace m-lg-2"
+                            <span
+                                className={`navbar-text mr-3 font-monospace ${style.navText}`}>
+                                Hello, <span>{username}</span></span>
+                            <button type="button" className={"btn btn-outline-danger font-monospace m-lg-2"}
                                     onClick={handleLogout}>Logout
                             </button>
                         </>
                     ) : (
                         <>
-                            <button  className="btn font-monospace login"
-                                     onClick={()=>navigate('login')}>Sign in</button>
-                            <button className="btn  font-monospace m-lg-2 register"
-                                    onClick={()=>navigate('register')}>Register</button>
+                            <button className={`btn font-monospace ${style.login}`}
+                                    onClick={() => navigate('login')}>Sign in
+                            </button>
+                            <button className={`btn font-monospace m-lg-2 ${style.register}`}
+                                    onClick={() => navigate('register')}>Register
+                            </button>
                         </>
                     )}
                 </div>
             </div>
         </nav>
-
     );
 };
+
+export default Header;
+
+

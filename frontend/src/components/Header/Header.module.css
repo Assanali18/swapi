@@ -1,0 +1,39 @@
+.navText, .navLink {
+    color: white;
+}
+.navLink:hover, .navLink:active, span {
+    color: yellow;
+}
+.navLink {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    font-family: monospace;
+}
+.navLinkActive {
+    color: yellow;
+}
+.navbarBrand, .navbarBrand:hover {
+    color: white;
+    padding-left: 30px;
+}
+.btn, .login:hover {
+    color: black;
+    background-color: yellow;
+}
+.login {
+    color: white;
+    background-color: transparent;
+    border-color: yellow;
+}
+.register, .register:hover{
+    color: black;
+    background-color: yellow;
+}
+
+.navbar-text{
+    color: white;
+}
+.navbar{
+    padding: 0;
+}
